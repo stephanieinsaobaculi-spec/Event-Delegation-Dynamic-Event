@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Delegation Example</title>
+</head>
+<body>
+<div id="classroom">
+<button>Student 1</button>
+<button>Student 2</button>
+</div>
+<button id="addStudent">Add New Student</button>
+
+<script>
+// Event Delegation: Listen to parent (#classroom)
+document.getElementById("classroom").addEventListener("click", function(event) {
+if (event.target.tagName === "BUTTON") {
+alert(event.target.textContent + " raised their hand!");
+}
+});
+
+// Dynamic Event: Adding new students (new buttons)
+document.getElementById("addStudent").addEventListener("click", function() {
+const newStudent = document.createElement("button");
+newStudent.textContent = "New Student";
+document.getElementById("classroom").appendChild(newStudent);
+});
+</script>
+</body>
+</html>
